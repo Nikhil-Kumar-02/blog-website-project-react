@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
 }
 
 .header{
@@ -59,6 +60,22 @@
         color: aliceblue;
     }
 }
+
+.content-tag , .content-category{
+    color: #766DF4;
+}
+
+.content-newsHeading:hover , .content-tag:hover , .content-category:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+
+
+
+
+
+
 
 .custom-loader {
     margin-top: 5rem;
