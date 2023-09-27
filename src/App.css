@@ -75,6 +75,7 @@
 .eachArticleBackButton{
     padding: 0.5rem;
     margin-left: 4rem;
+    cursor: pointer;
 }
 
 .custom-loader {

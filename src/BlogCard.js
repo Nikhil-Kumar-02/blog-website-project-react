@@ -8,7 +8,7 @@ const BlogCard = (props) => {
     const fullArticle = props.fullArticle;
 
     const navigate = useNavigate();
-    const {setArticleId} = useContext(AppContext);
+    const {setArticleId,setTag} = useContext(AppContext);
 
   return (
     <div>
@@ -17,7 +17,10 @@ const BlogCard = (props) => {
           console.log(index);
           navigate('/expand_blog');
         }} className="content-newsHeading">{blog.title}</h3>
-        <p>by {blog.author} on <span className="content-category">{blog.category}</span></p>
+        <p>by {blog.author} on <span className="content-category" onClick={(e)=>{
+          setTag(e.target.innerHTML);
+          navigate("/tag");
+        }}>{blog.category}</span></p>
         <p>{blog.date}</p>
         <br></br>
         <div>{fullArticle ? (blog.content) : (`${blog.content.substring(0,150)}  .... `)}</div>
@@ -25,7 +28,11 @@ const BlogCard = (props) => {
         <div>
         {
             blog.tags.map( (tag,index) => {
-                return <span key={index} className="content-tag">#{tag} </span>
+                return <span onClick={(e)=>{
+                  console.log(tag);
+                  setTag(tag);
+                  navigate("/tag");
+                }} key={index} className="content-tag">#{tag} </span>
             })
         }
         </div>

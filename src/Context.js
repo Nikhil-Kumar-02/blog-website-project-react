@@ -10,6 +10,7 @@ function AppContextProvider({children}) {
     const [blogs , setBlogs] = useState([]);
     const [loading , setLoading] = useState(true);
     const [articleId , setArticleId] = useState(0);
+    const [currtag , setTag] = useState("AI");
 
     async function getAllBlogs(){
         
@@ -55,7 +56,9 @@ function AppContextProvider({children}) {
         loading,
         blogs,
         articleId,
-        setArticleId
+        setArticleId,
+        setTag,
+        currtag
     }
 
     return <AppContext.Provider value={alldata}>{children}</AppContext.Provider>
