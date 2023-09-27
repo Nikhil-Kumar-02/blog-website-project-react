@@ -5,7 +5,7 @@ import BlogCard from "./BlogCard";
 
 const DetailedBlog = (props) => {
   const navigate = useNavigate();
-  const {setLoading , articleId , blogs} = useContext(AppContext);
+  const {articleId , blogs} = useContext(AppContext);
 
   return (
     <div>

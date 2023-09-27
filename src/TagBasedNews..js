@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext , useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "./Context";
 import BlogCard from "./BlogCard";
@@ -6,13 +6,19 @@ import BlogCard from "./BlogCard";
 const TagBasedNews = (props) => {
     const navigate = useNavigate();
     const {currtag , blogs} = useContext(AppContext);
+
+    useEffect(() => {
+        // Scroll to the top of the page when the route changes
+        window.scrollTo(0, 0);
+      }, [navigate]);
+
   return (
     <div>
-      <button onClick={()=>
+      <button className="eachArticleBackButton" onClick={()=>
         navigate(-1)
       }>Back</button>
-      <div>
-        <h1>news on the clicked feild</h1>
+      <div className="content">
+        <h1>News on the Topic : {currtag}</h1>
         <br></br>
         <br></br>
         {

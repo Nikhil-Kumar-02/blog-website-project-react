@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext , useEffect} from "react"
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "./Context";
 
@@ -9,6 +9,11 @@ const BlogCard = (props) => {
 
     const navigate = useNavigate();
     const {setArticleId,setTag} = useContext(AppContext);
+
+    useEffect(() => {
+      // Scroll to the top of the page when the route changes
+      window.scrollTo(0, 0);
+    }, [navigate]);
 
   return (
     <div>
