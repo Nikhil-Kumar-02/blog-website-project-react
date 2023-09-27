@@ -5,7 +5,7 @@ import BlogCard from "./BlogCard";
 const Content = (props) => {
   
     const {blogs , loading} = useContext(AppContext);
-
+    console.log(blogs);
     return (
         <div className="content"> 
             {
