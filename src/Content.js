@@ -12,9 +12,9 @@ const Content = (props) => {
                 loading ? (
             <div className="custom-loader"></div>
         ) : (
-            blogs.map( (blog) => {
+            blogs.map( (blog,index) => {
                 return (
-                    <BlogCard key={blog.id} blog={blog}></BlogCard>
+                    <BlogCard key={blog.id} blog={blog} index={index}></BlogCard>
                 )
             })
         )
