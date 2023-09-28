@@ -9,8 +9,8 @@ function AppContextProvider({children}) {
     const [totalPage , setTotalPage] = useState(null);
     const [blogs , setBlogs] = useState([]);
     const [loading , setLoading] = useState(true);
-    const [articleId , setArticleId] = useState(0);
-    const [currtag , setTag] = useState("a");
+    const [articleIndex , setArticleIndex] = useState(0);
+    const [currtag , setTag] = useState("Nothing");
 
     function movetoNewPage(newPage){
         setCurrPage(newPage);
@@ -49,7 +49,6 @@ function AppContextProvider({children}) {
             }
             setBlogs(array);
             setLoading(false);
-
         } catch (error) {
             console.log(error);
             setCurrPage(1);
@@ -73,8 +72,8 @@ function AppContextProvider({children}) {
         totalPage,
         loading,
         blogs,
-        articleId,
-        setArticleId,
+        articleIndex,
+        setArticleIndex,
         setTag,
         currtag
     }

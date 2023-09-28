@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { AppContext } from "./Context";
 import BlogCard from "./BlogCard";
 
-const Content = (props) => {
+const Content = () => {
   
     const {blogs , loading} = useContext(AppContext);
     console.log(blogs);

@@ -8,7 +8,7 @@ const BlogCard = (props) => {
     const fullArticle = props.fullArticle;
 
     const navigate = useNavigate();
-    const {setArticleId,setTag} = useContext(AppContext);
+    const {setArticleIndex,setTag} = useContext(AppContext);
 
     useEffect(() => {
       // Scroll to the top of the page when the route changes
@@ -18,9 +18,10 @@ const BlogCard = (props) => {
   return (
     <div>
         <h3 onClick={()=>{
-          setArticleId(index);
-          console.log(index);
-          navigate('/expand_blog');
+            if(!fullArticle){
+              setArticleIndex(index);
+              navigate('/expand_blog');
+            }
         }} className="content-newsHeading">{blog.title}</h3>
         <p>by {blog.author} on <span className="content-category" onClick={(e)=>{
           setTag(e.target.innerHTML);

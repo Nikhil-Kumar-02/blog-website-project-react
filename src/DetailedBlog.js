@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "./Context";
 import BlogCard from "./BlogCard";
 
-const DetailedBlog = (props) => {
+const DetailedBlog = () => {
   const navigate = useNavigate();
-  const {articleId , blogs} = useContext(AppContext);
+  const {articleIndex , blogs} = useContext(AppContext);
 
   return (
     <div>
@@ -13,14 +13,14 @@ const DetailedBlog = (props) => {
         navigate(-1);
       }}>Back</button>
       <div className="content">
-        <BlogCard fullArticle={true} blog={blogs[articleId]}></BlogCard>
+        <BlogCard fullArticle={true} blog={blogs[articleIndex]}></BlogCard>
         <br></br>
         <h1>Related Feed : </h1>
         <br></br>
         {
           blogs.map((blog,index)=>{
             return (
-              index!==articleId && 
+              index!==articleIndex && 
               <BlogCard blog={blog} index={index}></BlogCard>
             )
           })

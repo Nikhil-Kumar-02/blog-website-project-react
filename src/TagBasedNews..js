@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "./Context";
 import BlogCard from "./BlogCard";
 
-const TagBasedNews = (props) => {
+const TagBasedNews = () => {
     const navigate = useNavigate();
-    const {currtag , blogs} = useContext(AppContext);
+    const {currtag , blogs , loading} = useContext(AppContext);
 
     useEffect(() => {
         // Scroll to the top of the page when the route changes
@@ -14,26 +14,34 @@ const TagBasedNews = (props) => {
 
   return (
     <div>
-      <button className="eachArticleBackButton" onClick={()=>
-        navigate(-1)
-      }>Back</button>
-      <div className="content">
-        <h1>News on the Topic : {currtag}</h1>
-        <br></br>
-        <br></br>
-        {
-            blogs.map((blog , index)=>{
-                return (
-                    blog.tags.map((tag)=>{
-                        return (
-                            tag === currtag &&
-                            <BlogCard blog={blog} index={index}></BlogCard>
-                        )
-                    })
-                )
-            })
-        }
-      </div>
+      {
+        loading ? (
+          <div className="custom-loader"></div>
+        ) : (
+          <div>
+            <button className="eachArticleBackButton" onClick={()=>
+              navigate(-1)
+            }>Back</button>
+            <div className="content">
+              <h1>News on the Topic : {currtag}</h1>
+              <br></br>
+              <br></br>
+              {
+                blogs.map((blog , index)=>{
+                    return (
+                        blog.tags.map((tag)=>{
+                            return (
+                                tag === currtag &&
+                                <BlogCard blog={blog} index={index}></BlogCard>
+                            )
+                        })
+                    )
+                })
+              }
+            </div>
+          </div>
+        )
+      }
     </div>
   )
 };
