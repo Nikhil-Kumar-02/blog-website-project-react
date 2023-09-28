@@ -14,34 +14,26 @@ const TagBasedNews = () => {
 
   return (
     <div>
-      {
-        loading ? (
-          <div className="custom-loader"></div>
-        ) : (
-          <div>
-            <button className="eachArticleBackButton" onClick={()=>
-              navigate(-1)
-            }>Back</button>
-            <div className="content">
-              <h1>News on the Topic : {currtag}</h1>
-              <br></br>
-              <br></br>
-              {
-                blogs.map((blog , index)=>{
-                    return (
-                        blog.tags.map((tag)=>{
-                            return (
-                                tag === currtag &&
-                                <BlogCard blog={blog} index={index}></BlogCard>
-                            )
-                        })
-                    )
-                })
-              }
-            </div>
-          </div>
-        )
-      }
+      <button className="eachArticleBackButton" onClick={()=>
+        navigate(-1)
+      }>Back</button>
+      <div className="content">
+        <h1>News on the Topic : {currtag}</h1>
+        <br></br>
+        <br></br>
+        {
+          blogs.map((blog , index)=>{
+              return (
+                  blog.tags.map((tag)=>{
+                      return (
+                          tag === currtag &&
+                          <BlogCard blog={blog} index={index}></BlogCard>
+                      )
+                  })
+              )
+          })
+        }
+      </div>
     </div>
   )
 };
